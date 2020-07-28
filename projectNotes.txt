@@ -1,0 +1,14 @@
+Code that tells the user their total wealth accumulated in a specific league.
+- Searches through a Path of Exile account's public stash tabs to acquire the total value
+
+#######################################
+APIs to use:
+
+poe.ninja
+https://poe.ninja/api/data/currencyoverview?league=Harvest&type=Currency
+https://poe.ninja/api/data/currencyoverview?league=Harvest&type=Fragment
+...
+
+pathofexile.com
+
+#######################################
