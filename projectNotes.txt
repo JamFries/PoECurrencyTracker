@@ -2,8 +2,8 @@ Code that tells the user their total wealth accumulated in a specific league.
 - Searches through a Path of Exile account's public stash tabs to acquire the total value
 
 TODO:
-- Generalize adding stash tabs to the database
 - Updating stash tabs that are already in database but now have changed names/items
+- Test pathofexile get-stash-items API with cookies
 
 #######################################
 APIs to use:
