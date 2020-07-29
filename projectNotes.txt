@@ -12,3 +12,5 @@ https://poe.ninja/api/data/currencyoverview?league=Harvest&type=Fragment
 pathofexile.com
 
 #######################################
+
+*sql creating tables might not work with items from json

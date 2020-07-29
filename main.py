@@ -7,6 +7,20 @@ account = 'jamfries'
 platform = 'pc'
 charName = 'NowCalledAuraStacking'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Gather a list of all public stash tabs that belong to the player's account
 playerStashTabs = []
 
