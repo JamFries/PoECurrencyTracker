@@ -13,4 +13,15 @@ pathofexile.com
 
 #######################################
 
-*sql creating tables might not work with items from json
+- Remove Items from StashTabs Table
+- Make a new table for items
+- Associate the items to their respective stashTab using the stashTab_id
+
+########################################
+POE API Notes:
+Verified - whether the player still has the item (apparently only applies to forum listed items)
+frameType = rarity of the item (0-normal 1-magic 2-rare 3-unique 4-gem 5-currency 6-divinationCard)
+name - prefix of item
+typeLine - suffix of item
+########################################
+Temporary example for database before generalizing

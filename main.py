@@ -3,23 +3,9 @@ import json
 
 # Set initial variables used when searching through APIs
 league = 'Harvest'
-account = 'jamfries'
+account = 'blurp151'
 platform = 'pc'
 charName = 'NowCalledAuraStacking'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Gather a list of all public stash tabs that belong to the player's account
 playerStashTabs = []
@@ -36,6 +22,6 @@ for entry in stashTabs['stashes']:
     if (entry['accountName'] == account):
         playerStashTabs.append(entry) #Add the stash entry to the list of stash tabs the account has
 
-
-changeID = nextChangeID
+print(playerStashTabs)
+#changeID = nextChangeID
 
