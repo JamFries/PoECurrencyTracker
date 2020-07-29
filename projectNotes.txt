@@ -1,6 +1,10 @@
 Code that tells the user their total wealth accumulated in a specific league.
 - Searches through a Path of Exile account's public stash tabs to acquire the total value
 
+TODO:
+- Generalize adding stash tabs to the database
+- Updating stash tabs that are already in database but now have changed names/items
+
 #######################################
 APIs to use:
 
@@ -11,12 +15,6 @@ https://poe.ninja/api/data/currencyoverview?league=Harvest&type=Fragment
 
 pathofexile.com
 
-#######################################
-
-- Remove Items from StashTabs Table
-- Make a new table for items
-- Associate the items to their respective stashTab using the stashTab_id
-
 ########################################
 POE API Notes:
 Verified - whether the player still has the item (apparently only applies to forum listed items)
@@ -24,4 +22,14 @@ frameType = rarity of the item (0-normal 1-magic 2-rare 3-unique 4-gem 5-currenc
 name - prefix of item
 typeLine - suffix of item
 ########################################
-Temporary example for database before generalizing
+Change ID: 776710358-789939671-754199643-853094474-813985060 (My first tab found after modifying it)
+Tab ID: 9a30d217ad4775d7430a0c628745b1990e26bd31ffe8d284084bf1d960e560eb
+
+
+########################################
+Cmd Commands (for sqlite):
+sqlite3 c:\sqlite\db\accountStashTabsPOE.db
+.header on
+.mode column
+SELECT * FROM stashTabs;
+SELECT * FROM items;

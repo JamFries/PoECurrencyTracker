@@ -11,18 +11,17 @@ import json
 
 # Set initial variables used when searching through APIs
 league = 'Harvest'
-account = 'blurp151'
+account = 'JamFries'
 platform = 'pc'
 charName = 'NowCalledAuraStacking'
 
 # Gather a list of all public stash tabs that belong to the player's account
 playerStashTabs = []
 # Create a list to temporarily store items that are in a single stash tab before being added to the database
-stashTabItems = []
 
 # Use pathofexile's stash tab API to find my stash tabs that are listed public
 # Start with the change id from poe.ninja
-changeID = '776469591-789811728-754081559-852962907-813854915'
+changeID = '776710358-789939671-754199643-853094474-813985060'
 stashTabs = requests.get('http://api.pathofexile.com/public-stash-tabs', dict(id=changeID)).json()
 nextChangeID = stashTabs['next_change_id']
 
@@ -31,11 +30,9 @@ nextChangeID = stashTabs['next_change_id']
 for entry in stashTabs['stashes']:
     if (entry['accountName'] == account):
         playerStashTabs.append(entry) #Add the stash entry to the list of stash tabs the account has
-        for entry2 in entry['items']:
-            stashTabItems.append(entry2)
 
-print(playerStashTabs)
-print(stashTabItems)
+#print(playerStashTabs)
+#print(stashTabItems)
 #changeID = nextChangeID
 
 # Create a database connection to an SQLite database
@@ -56,6 +53,10 @@ def create_table(conn, create_table_sql):
         c.execute(create_table_sql)
     except Error as e:
         print(e)
+
+# Function to update information of a specific stash tab
+def update_stashTab(conn, stashTab):
+    pass
 
 # Create a new stash tab into the stashTabs table
 def create_stashTab(conn, stashTab):
@@ -123,6 +124,9 @@ def main():
     with conn:
         # Create a new stash tab
         for tab in playerStashTabs:
+            stashTabItems = []
+            for item in tab['items']:
+                stashTabItems.append(item)
             stashTab = (tab['id'], tab['accountName'], tab['stash'], tab['stashType'], tab['league'])
             stashTab_id = create_stashTab(conn, stashTab)
 
